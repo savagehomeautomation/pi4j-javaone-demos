@@ -1,0 +1,5 @@
+#surefire
+#Wed Sep 18 18:59:16 CDT 2013
+user.dir=/Users/roberts/dev/pi4j-demos/pi4j-demo-5-access-control
+localRepository=/Users/roberts/.m2/repository
+basedir=/Users/roberts/dev/pi4j-demos/pi4j-demo-5-access-control

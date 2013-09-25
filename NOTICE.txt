@@ -1,0 +1,28 @@
+   =========================================================================
+   Raspberry Pi - Pi4J Demos @ JavaOne 2013 (San Francisco)
+   =========================================================================
+
+   Raspberry Pi - Pi4J Demos @ JavaOne 2013 (San Francisco)
+   Copyright (C) 2013 Robert Savage (www.savagehomeautomation.com)
+
+   This project was originally authored by: Robert Savage
+
+   This software is licensed under the Apache License, Version 2.0.
+   More information about licensing terms can be found in:
+     LICENSE.TXT
+                           
+   Additional information about this project and its authors can be found at:
+   - http://www.savagehomeautomation.com
+   
+   This software compiles against libraries from The Pi4J Project.
+   
+   The Pi4J Project is available from:    
+     http://www.pi4j.com/
+
+   The Pi4J Project is licensed under the Apache License, Version 2.0 
+     http://pi4j.com/license.html
+
+   =========================================================================
+   Subject to the terms of the software license, this NOTICE file must be
+   included in any Derivative Works that You distribute as a readable copy.
+   (Section 4d) 

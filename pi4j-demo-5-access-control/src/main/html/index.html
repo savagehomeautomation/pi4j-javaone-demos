@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Pi4J :: Access Control Demo</title>
+    <link rel="stylesheet" href="jquery.mobile-1.3.1.min.css">
+    <link rel="stylesheet" type="text/css" href="jquery.mobile.simpledialog.min.css" />
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="jquery.mobile-1.3.1.min.js"></script>
+    <script src="codiqa.ext.js"></script>
+    <script type="text/javascript" src="jquery.gracefulWebSocket.js"></script>
+    <script type="text/javascript" src="jquery.mobile.simpledialog2.min.js"></script>
+
+    <script>
+
+        // open socket using standard syntax
+        var ws = $.gracefulWebSocket("ws://192.168.2.2");
+
+        // listen for messages from server using standard syntax
+        ws.onmessage = function (event) {
+            var displayMessage = "";
+            var result = event.data;
+            if(result == "unlock=success"){
+                displayMessage = "Door unlocked successfully.";
+            }
+            else{
+                displayMessage = "Door was not unlocked; request failed.";
+            }
+
+            // display alert message
+            $('<div></div>').simpledialog2({
+                mode: 'blank',
+                headerText: 'Pi4J Access Control Demo',
+                headerClose: false,
+                blankContent :
+                    "<p style='display: block; margin-left: auto; margin-right: auto; padding: 15px;'>" + displayMessage + "</p>" +
+                    "<a rel='close' data-role='button' href='#'>Close</a>"
+            });
+        };
+
+    </script>
+    <style>
+        .ui-header .ui-title {
+            margin-right: 10%;
+            margin-left: 10%;
+            overflow: visible !important;
+            white-space: normal !important;
+        }
+    </style>
+
+   
+</head>
+<body>
+    <div data-role="page" id="page1">
+
+        <!-- HEADER -->
+        <div data-theme="a"
+             data-role="header"
+             data-position="fixed">
+                <h3>Pi4J :: Access Control Demo</h3>
+        </div>
+
+        <!-- CONTENT BODY -->
+        <div data-role="content">
+            <h3 style="text-align: center;">JavaOne 2013 - San Francisco</h3>
+            <p style="text-align: center; font-size:80%;">CON7968 - Let's Get Physical: I/O Programming with Java on the Raspberry Pi with Pi4J.  (Presented by: Robert Savage)</p>
+            <a id="unlockDoor"
+               data-role="button"
+               data-icon="star"
+               data-iconpos="right"
+               onclick="ws.send('unlock'); ">
+                Open Sesame
+            </a>
+            <p style="text-align: center; font-size:80%;">This demo is using a JQuery Mobile UI communicating via WebSockets to an embedded Jetty web server running on the Raspberry Pi.</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div data-theme="h"
+             data-role="footer">
+            <img style="width: 183px; height: 40px; margin-top: 10px; margin-bottom: 10px; padding-right: 30px; display: block; margin-left: auto; margin-right: auto;" src="http://pi4j.com/images/logos/pi4j-header-small3.png">
+        </div>
+        <div data-theme="a"
+             data-role="footer"
+             data-position="fixed">
+            <h4>
+                Powered by RPi, Java & Pi4J
+            </h4>
+        </div>
+    </div>
+</body>
+</html>
